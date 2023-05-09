@@ -1,3 +1,7 @@
+The query to display the attributes of employees’ first and last name, date of hire and salary as well as 
+the name of their position, and salary ranges for each employee. Showing difference between each employee’s
+current salary and the base (minimum) salary for their job.
+
 --Selecting needed columns
 SELECT
 EM.first_name AS "First Name",
@@ -16,3 +20,4 @@ JOIN jobs J
 on EM.job_id = J.job_id
 
 ;
+

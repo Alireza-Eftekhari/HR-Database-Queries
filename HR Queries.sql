@@ -1,4 +1,3 @@
-select
 -- Q1
 --Selecting needed columns
 SELECT

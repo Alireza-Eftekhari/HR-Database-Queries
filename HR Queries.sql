@@ -75,3 +75,59 @@ WHERE EM.salary > (
     WHERE department_id = EM.department_id)
 ORDER BY EM.last_name
 ;
+
+
+--Q5
+SELECT DEPT.department_name AS "Department",
+ROUND(AVG(EM.salary),2) AS "Department Avaerage Salary", 
+(SELECT AVG(salary) FROM employees) AS "Company Averag Salary",
+ROUND(AVG(EM.salary) - (SELECT AVG(salary) FROM employees),2) AS "Salary Difference"
+FROM employees EM
+JOIN departments DEPT ON EM.department_id = DEPT.department_id
+GROUP BY DEPT.department_name
+HAVING AVG(EM.salary) = (
+SELECT MAX(avg_salary)
+FROM (
+SELECT AVG(salary) AS avg_salary
+FROM employees
+GROUP BY department_id))
+;
+
+
+--Q6
+SELECT DEPT.department_name AS "Department",
+COUNT(EM.employee_id) AS "Total Employees"
+--selecting needed table
+FROM departments DEPT
+--joining two tables
+JOIN employees EM 
+ON EM.department_id = DEPT.department_id
+GROUP BY DEPT.department_name
+-- Oordering to find the department with the most total employees
+ORDER BY "Total Employees" DESC
+FETCH FIRST 1 ROW ONLY
+;
+
+
+--Q7
+SELECT DEPT.department_name AS "Department",
+COUNT(EM.employee_id) AS "Total Employees"
+--selecting needed table
+FROM departments DEPT
+--joining two tables
+JOIN employees EM 
+ON EM.department_id = DEPT.department_id
+GROUP BY DEPT.department_name
+-- Oordering to find the department with the most total employees
+ORDER BY "Total Employees" DESC
+;
+
+
+--Q8
+SELECT distinct
+J.job_title AS "Job"
+FROM jobs J
+JOIN employees EM 
+on J.job_id = EM.job_id
+where EM.salary*12 > 100000
+;

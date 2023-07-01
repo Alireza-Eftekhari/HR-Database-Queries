@@ -8,3 +8,11 @@ Q2. This query displays the employee’s first and last name, email address, and
 Q3. This query displays the name of each country, calculates the count of how many employees there are per country and renames the count of employees as “Total_Employees”.
 
 Q4. This query identifies which employees have a salary that is higher than the average salary for their department?
+
+Q5. This query identifies which department has the highest average salary, and how compare it to the company-wide average salary.
+
+Q6. This query identifies which department has the highest number of employees.
+
+Q7. This Query Lists all departments and sort the results.
+
+Q8. The query to answer this question, which jobs have at least 1 employee with a salary higher than $100K? 
